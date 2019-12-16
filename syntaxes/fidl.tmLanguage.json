@@ -1,0 +1,825 @@
+{
+   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+   "name": "FRANCA IDL",
+   "patterns": [
+      {
+         "include": "#main"
+      }
+   ],
+   "repository": {
+      "main": {
+         "patterns": [
+            {
+               "include": "#Number"
+            },
+            {
+               "match": "(\\btrue\\b|\\bfalse\\b)",
+               "name": "constant.language.fidl"
+            },
+            {
+               "include": "#String"
+            },
+            {
+               "include": "#Grammar"
+            },
+            {
+               "match": "([^\\s])",
+               "name": "invalid.illegal.fidl"
+            }
+         ]
+      },
+      "Number": {
+         "match": "(?<!\\w)\\.?\\d(?:(?:[0-9a-zA-Z_\\.]|')|(?<=[eEpP])[+-])*",
+         "captures": {
+            "0": {
+               "patterns": [
+                  {
+                     "begin": "(?=.)",
+                     "end": "$",
+                     "patterns": [
+                        {
+                           "match": "(\\G0[xX])([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?:(?<=[0-9a-fA-F])\\.|\\.(?=[0-9a-fA-F])))([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?<!')([pP])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)))?([dDfF](?!\\w))?$",
+                           "captures": {
+                              "1": {
+                                 "name": "keyword.other.unit.hexadecimal.fidl"
+                              },
+                              "2": {
+                                 "name": "constant.numeric.hexadecimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "3": {
+                                 "name": "punctuation.separator.constant.numeric"
+                              },
+                              "4": {
+                                 "name": "constant.numeric.hexadecimal.fidl"
+                              },
+                              "5": {
+                                 "name": "constant.numeric.hexadecimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "6": {
+                                 "name": "punctuation.separator.constant.numeric"
+                              },
+                              "8": {
+                                 "name": "keyword.other.unit.exponent.hexadecimal.fidl"
+                              },
+                              "9": {
+                                 "name": "keyword.operator.plus.exponent.hexadecimal.fidl"
+                              },
+                              "10": {
+                                 "name": "keyword.operator.minus.exponent.hexadecimal.fidl"
+                              },
+                              "11": {
+                                 "name": "constant.numeric.exponent.hexadecimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "12": {
+                                 "name": "keyword.other.unit.suffix.floating-point.fidl"
+                              }
+                           }
+                        },
+                        {
+                           "match": "(\\G(?=[0-9.])(?!0[xXbB]))([0-9](?:[0-9]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?:(?<=[0-9])\\.|\\.(?=[0-9])))([0-9](?:[0-9]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?<!')([eE])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)))?([dDfF](?!\\w))?$",
+                           "captures": {
+                              "2": {
+                                 "name": "constant.numeric.decimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "3": {
+                                 "name": "punctuation.separator.constant.numeric"
+                              },
+                              "4": {
+                                 "name": "constant.numeric.decimal.point.fidl"
+                              },
+                              "5": {
+                                 "name": "constant.numeric.decimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "6": {
+                                 "name": "punctuation.separator.constant.numeric"
+                              },
+                              "8": {
+                                 "name": "keyword.other.unit.exponent.decimal.fidl"
+                              },
+                              "9": {
+                                 "name": "keyword.operator.plus.exponent.decimal.fidl"
+                              },
+                              "10": {
+                                 "name": "keyword.operator.minus.exponent.decimal.fidl"
+                              },
+                              "11": {
+                                 "name": "constant.numeric.exponent.decimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "12": {
+                                 "name": "keyword.other.unit.suffix.floating-point.fidl"
+                              }
+                           }
+                        },
+                        {
+                           "match": "(\\G0[bB])([01](?:[01]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)((?:[dD]|[fF])(?!\\w))?$",
+                           "captures": {
+                              "1": {
+                                 "name": "keyword.other.unit.binary.fidl"
+                              },
+                              "2": {
+                                 "name": "constant.numeric.binary.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "3": {
+                                 "name": "punctuation.separator.constant.numeric"
+                              },
+                              "4": {
+                                 "name": "keyword.other.unit.suffix.integer.fidl"
+                              }
+                           }
+                        },
+                        {
+                           "match": "(\\G0)((?:[0-7]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))+)((?:[dD]|[fF])(?!\\w))?$",
+                           "captures": {
+                              "1": {
+                                 "name": "keyword.other.unit.octal.fidl"
+                              },
+                              "2": {
+                                 "name": "constant.numeric.octal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "3": {
+                                 "name": "punctuation.separator.constant.numeric"
+                              },
+                              "4": {
+                                 "name": "keyword.other.unit.suffix.integer.fidl"
+                              }
+                           }
+                        },
+                        {
+                           "match": "(\\G0[xX])([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)((?<!')([pP])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)))?((?:[dDfF])(?!\\w))?$",
+                           "captures": {
+                              "1": {
+                                 "name": "keyword.other.unit.hexadecimal.fidl"
+                              },
+                              "2": {
+                                 "name": "constant.numeric.hexadecimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "3": {
+                                 "name": "punctuation.separator.constant.numeric"
+                              },
+                              "5": {
+                                 "name": "keyword.other.unit.exponent.hexadecimal.fidl"
+                              },
+                              "6": {
+                                 "name": "keyword.operator.plus.exponent.hexadecimal.fidl"
+                              },
+                              "7": {
+                                 "name": "keyword.operator.minus.exponent.hexadecimal.fidl"
+                              },
+                              "8": {
+                                 "name": "constant.numeric.exponent.hexadecimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "9": {
+                                 "name": "keyword.other.unit.suffix.integer.fidl"
+                              }
+                           }
+                        },
+                        {
+                           "match": "(\\G(?=[0-9.])(?!0[xXbB]))([0-9](?:[0-9]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)((?<!')([eE])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)))?((?:[dDfF])(?!\\w))?$",
+                           "captures": {
+                              "2": {
+                                 "name": "constant.numeric.decimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "3": {
+                                 "name": "punctuation.separator.constant.numeric"
+                              },
+                              "5": {
+                                 "name": "keyword.other.unit.exponent.decimal.fidl"
+                              },
+                              "6": {
+                                 "name": "keyword.operator.plus.exponent.decimal.fidl"
+                              },
+                              "7": {
+                                 "name": "keyword.operator.minus.exponent.decimal.fidl"
+                              },
+                              "8": {
+                                 "name": "constant.numeric.exponent.decimal.fidl",
+                                 "patterns": [
+                                    {
+                                       "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                       "name": "punctuation.separator.constant.numeric"
+                                    }
+                                 ]
+                              },
+                              "9": {
+                                 "name": "keyword.other.unit.suffix.integer.fidl"
+                              }
+                           }
+                        },
+                        {
+                           "match": "(?:(?:[0-9a-zA-Z_\\.]|')|(?<=[eEpP])[+-])+",
+                           "name": "invalid.illegal.constant.numeric"
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      },
+      "String": {
+         "patterns": [
+            {
+               "begin": "(\\\")",
+               "beginCaptures": {
+                  "1": {
+                     "name": "string.quoted.double.fidl"
+                  }
+               },
+               "contentName": "string.quoted.double.fidl",
+               "end": "(\\\")",
+               "endCaptures": {
+                  "1": {
+                     "name": "string.quoted.double.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "Grammar": {
+         "patterns": [
+            {
+               "include": "#Comment"
+            },
+            {
+               "include": "#PackageDecl"
+            },
+            {
+               "include": "#ImportSection"
+            },
+            {
+               "include": "#PrimitiveTypes"
+            },
+            {
+               "include": "#Integer"
+            },
+            {
+               "include": "#Arrays"
+            },
+            {
+               "include": "#Enumerations"
+            },
+            {
+               "include": "#Structures"
+            },
+            {
+               "include": "#Union"
+            },
+            {
+               "include": "#Map"
+            },
+            {
+               "include": "#TypeDef"
+            },
+            {
+               "include": "#TypeCollection"
+            },
+            {
+               "include": "#Interface"
+            }
+         ]
+      },
+      "Comment": {
+         "patterns": [
+            {
+               "include": "#UnstructuredComment"
+            },
+            {
+               "include": "#StructuredComment"
+            }
+         ]
+      },
+      "UnstructuredComment": {
+         "patterns": [
+            {
+               "match": "(//.*)",
+               "name": "comment.line.double-slash.fidl"
+            },
+            {
+               "begin": "(/\\*)",
+               "beginCaptures": {
+                  "1": {
+                     "name": "comment.block.fidl"
+                  }
+               },
+               "contentName": "comment.block.fidl",
+               "end": "(\\*/)",
+               "endCaptures": {
+                  "1": {
+                     "name": "comment.block.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "StructuredComment": {
+         "patterns": [
+            {
+               "begin": "(<\\*\\*)",
+               "beginCaptures": {
+                  "1": {
+                     "name": "comment.block.documentation.begin.fidl"
+                  }
+               },
+               "contentName": "comment.block.documentation.fidl",
+               "patterns": [
+                  {
+                     "match": "(@\\^?\\w+(?:(?:\\.|\\$)\\w+)*)",
+                     "name": "storage.type.class.doxygen.fidl"
+                  }
+               ],
+               "end": "(\\*\\*>)",
+               "endCaptures": {
+                  "1": {
+                     "name": "comment.block.documentation.end.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "PackageDecl": {
+         "patterns": [
+            {
+               "match": "(^\\s*\\bpackage\\b)(\\s+)(\\^?\\w+(?:(?:\\.|\\$)\\w+)*)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.section.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "ImportSection": {
+         "patterns": [
+            {
+               "match": "(^\\s*\\bimport\\b)(\\s*)(\\^?\\w+(?:(?:\\.|\\$)\\w+)*\\W*)(\\s*)((?:\\bfrom\\b)?)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.fidl"
+                  },
+                  "4": {
+                     "name": "whitespace.fidl"
+                  },
+                  "5": {
+                     "name": "keyword.other.fidl"
+                  }
+               }
+            },
+            {
+               "match": "(^\\s*\\bimport\\b)(\\s*)(\\bmodel\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "keyword.other.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "PrimitiveTypes": {
+         "patterns": [
+            {
+               "match": "\\b(const|Int8|UInt8|Int16|UInt16|Int32|UInt32|Int64|UInt64|Boolean|String|Float|Double|ByteBuffe)\\b",
+               "name": "storage.type.fidl"
+            }
+         ]
+      },
+      "Integer": {
+         "patterns": [
+            {
+               "match": "\\b(Integer|minInt|maxInt)\\b",
+               "name": "keyword.other.fidl"
+            }
+         ]
+      },
+      "Arrays": {
+         "patterns": [
+            {
+               "match": "(\\barray\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bof\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "storage.type.array.fidl"
+                  },
+                  "4": {
+                     "name": "whitespace.fidl"
+                  },
+                  "5": {
+                     "name": "keyword.other.fidl"
+                  }
+               }
+            },
+            {
+               "name": "storage.type.array.fidl",
+               "begin": "\\[",
+               "end": "\\]"
+            }
+         ]
+      },
+      "Enumerations": {
+         "patterns": [
+            {
+               "match": "(^\\s*{?\\s*\\benumeration\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.type.fidl"
+                  }
+               }
+            },
+            {
+               "match": "(^\\s*{?\\s*\\benumeration\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bextends\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.type.fidl"
+                  },
+                  "4": {
+                     "name": "whitespace.fidl"
+                  },
+                  "5": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "6": {
+                     "name": "whitespace.fidl"
+                  },
+                  "7": {
+                     "name": "entity.name.type.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "Structures": {
+         "patterns": [
+            {
+               "match": "(^\\s*{?\\s*\\bstruct\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.type.fidl"
+                  }
+               }
+            },
+            {
+               "match": "(^\\s*{?\\s*\\bstruct\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bpolymorphic\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.type.fidl"
+                  },
+                  "4": {
+                     "name": "whitespace.fidl"
+                  },
+                  "5": {
+                     "name": "keyword.other.fidl"
+                  }
+               }
+            },
+            {
+               "match": "(^\\s*{?\\s*\\bstruct\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bextends\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.type.fidl"
+                  },
+                  "4": {
+                     "name": "whitespace.fidl"
+                  },
+                  "5": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "6": {
+                     "name": "whitespace.fidl"
+                  },
+                  "7": {
+                     "name": "entity.name.type.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "Union": {
+         "patterns": [
+            {
+               "match": "(^\\s*{?\\s*\\bunion\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.type.fidl"
+                  }
+               }
+            },
+            {
+               "match": "(^\\s*{?\\s*\\bunion\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bextends\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.type.fidl"
+                  },
+                  "4": {
+                     "name": "whitespace.fidl"
+                  },
+                  "5": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "6": {
+                     "name": "whitespace.fidl"
+                  },
+                  "7": {
+                     "name": "entity.name.type.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "Map": {
+         "patterns": [
+            {
+               "match": "\\b(map|to)\\b",
+               "name": "keyword.other.fidl"
+            }
+         ]
+      },
+      "TypeDef": {
+         "patterns": [
+            {
+               "match": "(\\btypedef\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bis\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "storage.type.array.fidl"
+                  },
+                  "4": {
+                     "name": "whitespace.fidl"
+                  },
+                  "5": {
+                     "name": "keyword.other.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "TypeCollection": {
+         "patterns": [
+            {
+               "match": "(^\\s*\\btypeCollection\\b)(\\s*\\W*\\b)",
+               "captures": {
+                  "1": {
+                     "name": "storage.type.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  }
+               }
+            },
+            {
+               "match": "(^\\s*\\btypeCollection\\b)(\\s+)(\\b(?:[\\w])+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "storage.type.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.type.fidl"
+                  }
+               }
+            }
+         ]
+      },
+      "Interface": {
+         "patterns": [
+            {
+               "match": "(^\\s*\\binterface\\b)(\\s+)(\\b(?:[\\w])+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "storage.type.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.type.fidl"
+                  }
+               }
+            },
+            {
+               "match": "\\bmanages\\b",
+               "name": "keyword.other.fidl"
+            },
+            {
+               "include": "#Attributes"
+            },
+            {
+               "include": "#Method"
+            },
+            {
+               "include": "#Broadcast"
+            },
+            {
+               "include": "#Contract"
+            }
+         ]
+      },
+      "Attributes": {
+         "patterns": [
+            {
+               "match": "\\b(attribute|readonly|noSubscriptions|noRead)\\b",
+               "name": "keyword.other.fidl"
+            }
+         ]
+      },
+      "Method": {
+         "patterns": [
+            {
+               "match": "(^\\s*\\bmethod\\b)(\\s+)(\\b\\w+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.function.fidl"
+                  }
+               }
+            },
+            {
+               "match": "\\b(in|out|error|fireAndForget)\\b",
+               "name": "keyword.other.fidl"
+            }
+         ]
+      },
+      "Broadcast": {
+         "patterns": [
+            {
+               "match": "(^\\s*\\bbroadcast\\b)(\\s+)(\\b\\w+\\b)",
+               "captures": {
+                  "1": {
+                     "name": "keyword.other.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  },
+                  "3": {
+                     "name": "entity.name.function.fidl"
+                  }
+               }
+            },
+            {
+               "match": "\\bselective\\b",
+               "name": "keyword.other.fidl"
+            }
+         ]
+      },
+      "Contract": {
+         "patterns": [
+            {
+               "match": "(^\\s*\\bcontract\\b)(\\s*\\W*\\b)",
+               "captures": {
+                  "1": {
+                     "name": "entity.name.function.fidl"
+                  },
+                  "2": {
+                     "name": "whitespace.fidl"
+                  }
+               }
+            },
+            {
+               "match": "\\b(PSM|vars|state|transition|initial|call|respond|signal|set|update)\\b",
+               "name": "keyword.other.fidl"
+            }
+         ]
+      }
+   },
+   "scopeName": "source.fidl"
+}
