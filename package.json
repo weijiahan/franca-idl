@@ -1,25 +1,35 @@
 {
-    "name": "franca-idl",
-    "displayName": "FRANCA IDL",
-    "description": "FIDL (FRANCA Interface Description Language) support for VSCode.",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.40.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "contributes": {
-        "languages": [{
+   "name": "franca-idl",
+   "displayName": "FRANCA IDL",
+   "description": "FIDL (FRANCA Interface Description Language) support for VSCode.",
+   "version": "0.0.2",
+   "engines": {
+      "vscode": "^1.40.0"
+   },
+   "categories": [
+      "Programming Languages"
+   ],
+   "publisher": "weijh",
+   "contributes": {
+      "languages": [
+         {
             "id": "fidl",
-            "aliases": ["FRANCA IDL", "fidl"],
-            "extensions": [".fidl"],
+            "aliases": [
+               "FRANCA IDL",
+               "fidl"
+            ],
+            "extensions": [
+               ".fidl"
+            ],
             "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
+         }
+      ],
+      "grammars": [
+         {
             "language": "fidl",
             "scopeName": "source.fidl",
             "path": "./syntaxes/fidl.tmLanguage.json"
-        }]
-    }
+         }
+      ]
+   }
 }

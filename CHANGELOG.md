@@ -6,6 +6,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.0.2] - 2019-12-17
+
+### Changed
+
+- Structured comments only support build-in tags.
+
 ## [0.0.1] - 2019-12-16
 
 - Initial release
