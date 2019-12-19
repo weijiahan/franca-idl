@@ -736,6 +736,9 @@
                "name": "keyword.other.fidl"
             },
             {
+               "include": "#Version"
+            },
+            {
                "include": "#Attributes"
             },
             {
@@ -746,6 +749,14 @@
             },
             {
                "include": "#Contract"
+            }
+         ]
+      },
+      "Version": {
+         "patterns": [
+            {
+               "match": "\\b(version|major|minor)\\b",
+               "name": "keyword.other.fidl"
             }
          ]
       },

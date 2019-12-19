@@ -1,0 +1,90 @@
+{
+   "interface definition": {
+		"prefix": "interface",
+		"body": [
+			"interface $1 {",
+			"  $2",
+			"}"
+		],
+		"description": "Creates an empty interface definition"
+   },
+   "method defintion": {
+		"prefix": "method",
+		"body": [
+         "method $1 {",
+         "\tin {",
+         "\t\t$2",
+         "\t}",
+         "\tout {",
+         "\t\t$3",
+         "\t}",
+			"}",
+         "\terror {",
+         "\t\t$4",
+         "\t}",
+			"}"
+		],
+		"description": "Creates a method definition"
+   },
+   "broadcast defintion": {
+		"prefix": "broadcast",
+		"body": [
+         "broadcast $1 {",
+         "\tout {",
+         "\t\t$2",
+         "\t}",
+			"}"
+		],
+		"description": "Creates a broadcast definition"
+	},
+   "struct defintion": {
+		"prefix": "struct",
+		"body": [
+         "struct $1 {",
+         "\t$2",
+			"}"
+		],
+		"description": "Creates a struct definition"
+   },
+   "array defintion": {
+		"prefix": "array",
+		"body": [
+         "array $1 of $2"
+		],
+		"description": "Creates a array definition"
+	},
+   "typedef defintion": {
+		"prefix": "typedef",
+		"body": [
+         "typedef $1 is $2"
+		],
+		"description": "Creates a array definition"
+	},
+   "enumeration defintion": {
+		"prefix": "enumeration",
+		"body": [
+         "enumeration $1 {",
+         "\t$2",
+			"}"
+		],
+		"description": "Creates a enumeration definition"
+   },
+   "union defintion": {
+		"prefix": "union",
+		"body": [
+         "union $1 {",
+         "\t$2",
+			"}"
+		],
+		"description": "Creates a union definition"
+   },
+   "map defintion": {
+		"prefix": "map",
+		"body": [
+         "map $1 {",
+         "\t$2 to $3",
+			"}"
+		],
+		"description": "Creates a map definition"
+   }
+}

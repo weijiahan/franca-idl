@@ -6,6 +6,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.0.3] - 2019-12-19
+
+### Added
+
+- Version keyword support.
+- Snippets support.
+
 ## [0.0.2] - 2019-12-17
 
 ### Changed

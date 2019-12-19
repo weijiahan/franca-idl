@@ -8,5 +8,6 @@ This is a language extension for the Franca IDL (Interface Definition Language).
 Currrently the following features are supported:
 
 * syntax highlighting
+* snippets
 
 **Enjoy!**
