@@ -422,7 +422,7 @@
       "ImportSection": {
          "patterns": [
             {
-               "match": "(^\\s*\\bimport\\b)(\\s*)(\\^?\\w+(?:(?:\\.|\\$)\\w+)*\\W*)(\\s*)((?:\\bfrom\\b)?)",
+               "match": "(^\\s*\\bimport\\b)(\\s+)(\\^?\\w+(?:(?:\\.|\\$)\\w+)*\\W*)(\\s+)((?:\\bfrom\\b)?)",
                "captures": {
                   "1": {
                      "name": "keyword.other.fidl"
@@ -431,7 +431,7 @@
                      "name": "whitespace.fidl"
                   },
                   "3": {
-                     "name": "entity.name.fidl"
+                     "name": "entity.name.section.fidl"
                   },
                   "4": {
                      "name": "whitespace.fidl"
@@ -442,7 +442,7 @@
                }
             },
             {
-               "match": "(^\\s*\\bimport\\b)(\\s*)(\\bmodel\\b)",
+               "match": "(^\\s*\\bimport\\b)(\\s+)(\\bmodel\\b)",
                "captures": {
                   "1": {
                      "name": "keyword.other.fidl"
@@ -460,7 +460,7 @@
       "PrimitiveTypes": {
          "patterns": [
             {
-               "match": "\\b(const|Int8|UInt8|Int16|UInt16|Int32|UInt32|Int64|UInt64|Boolean|String|Float|Double|ByteBuffe)\\b",
+               "match": "\\b(const|Int8|UInt8|Int16|UInt16|Int32|UInt32|Int64|UInt64|Boolean|String|Float|Double|ByteBuffer)\\b",
                "name": "storage.type.fidl"
             }
          ]
@@ -485,7 +485,7 @@
                      "name": "whitespace.fidl"
                   },
                   "3": {
-                     "name": "storage.type.array.fidl"
+                     "name": "entity.name.type.fidl"
                   },
                   "4": {
                      "name": "whitespace.fidl"
@@ -674,7 +674,7 @@
                      "name": "whitespace.fidl"
                   },
                   "3": {
-                     "name": "storage.type.array.fidl"
+                     "name": "entity.name.type.fidl"
                   },
                   "4": {
                      "name": "whitespace.fidl"
