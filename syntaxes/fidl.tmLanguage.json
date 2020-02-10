@@ -388,7 +388,7 @@
                "contentName": "comment.block.documentation.fidl",
                "patterns": [
                   {
-                     "match": "(@\\^?(description|author|deprecated|source-uri|source-alias|see|experimental|details|param|high-volume|high-frequency))",
+                     "match": "(@\\^?(description|author|deprecated|source-uri|source-alias|see|experimental|details|param|high-volume|high-frequency)\\s*:)",
                      "name": "storage.type.class.doxygen.fidl"
                   }
                ],
