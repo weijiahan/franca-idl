@@ -1,0 +1,5 @@
+package org.franca.examples
+
+typeCollection {
+   typedef Basic is String
+}
