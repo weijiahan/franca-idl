@@ -6,6 +6,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.0.4] - 2020-02-11
+
+### Changed
+
+- Fix whitespaces.
+- Fix spelling `ByteBuffe` => `ByteBuffer`.
+- Fix structured comment trailing.
+
 ## [0.0.3] - 2019-12-19
 
 ### Added
