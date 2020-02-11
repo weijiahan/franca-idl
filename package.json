@@ -2,7 +2,8 @@
    "name": "franca-idl",
    "displayName": "FRANCA IDL",
    "description": "FRANCA Interface Description Language (FIDL) support for VSCode.",
-   "version": "0.0.4",
+   "version": "0.0.5",
+   "icon": "images/icon.png",
    "engines": {
       "vscode": "^1.40.0"
    },

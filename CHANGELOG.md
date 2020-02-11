@@ -6,6 +6,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.0.5] - 2020-02-11
+
+### Add
+
+- Icon file.
+
 ## [0.0.4] - 2020-02-11
 
 ### Changed
