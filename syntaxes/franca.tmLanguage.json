@@ -14,7 +14,7 @@
             },
             {
                "match": "(\\btrue\\b|\\bfalse\\b)",
-               "name": "constant.language.fidl"
+               "name": "constant.language.franca"
             },
             {
                "include": "#String"
@@ -24,7 +24,7 @@
             },
             {
                "match": "([^\\s])",
-               "name": "invalid.illegal.fidl"
+               "name": "invalid.illegal.franca"
             }
          ]
       },
@@ -41,10 +41,10 @@
                            "match": "(\\G0[xX])([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?:(?<=[0-9a-fA-F])\\.|\\.(?=[0-9a-fA-F])))([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?<!')([pP])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)))?([dDfF](?!\\w))?$",
                            "captures": {
                               "1": {
-                                 "name": "keyword.other.unit.hexadecimal.fidl"
+                                 "name": "keyword.other.unit.hexadecimal.franca"
                               },
                               "2": {
-                                 "name": "constant.numeric.hexadecimal.fidl",
+                                 "name": "constant.numeric.hexadecimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -56,10 +56,10 @@
                                  "name": "punctuation.separator.constant.numeric"
                               },
                               "4": {
-                                 "name": "constant.numeric.hexadecimal.fidl"
+                                 "name": "constant.numeric.hexadecimal.franca"
                               },
                               "5": {
-                                 "name": "constant.numeric.hexadecimal.fidl",
+                                 "name": "constant.numeric.hexadecimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -71,16 +71,16 @@
                                  "name": "punctuation.separator.constant.numeric"
                               },
                               "8": {
-                                 "name": "keyword.other.unit.exponent.hexadecimal.fidl"
+                                 "name": "keyword.other.unit.exponent.hexadecimal.franca"
                               },
                               "9": {
-                                 "name": "keyword.operator.plus.exponent.hexadecimal.fidl"
+                                 "name": "keyword.operator.plus.exponent.hexadecimal.franca"
                               },
                               "10": {
-                                 "name": "keyword.operator.minus.exponent.hexadecimal.fidl"
+                                 "name": "keyword.operator.minus.exponent.hexadecimal.franca"
                               },
                               "11": {
-                                 "name": "constant.numeric.exponent.hexadecimal.fidl",
+                                 "name": "constant.numeric.exponent.hexadecimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -89,7 +89,7 @@
                                  ]
                               },
                               "12": {
-                                 "name": "keyword.other.unit.suffix.floating-point.fidl"
+                                 "name": "keyword.other.unit.suffix.floating-point.franca"
                               }
                            }
                         },
@@ -97,7 +97,7 @@
                            "match": "(\\G(?=[0-9.])(?!0[xXbB]))([0-9](?:[0-9]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?:(?<=[0-9])\\.|\\.(?=[0-9])))([0-9](?:[0-9]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?<!')([eE])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)))?([dDfF](?!\\w))?$",
                            "captures": {
                               "2": {
-                                 "name": "constant.numeric.decimal.fidl",
+                                 "name": "constant.numeric.decimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -109,10 +109,10 @@
                                  "name": "punctuation.separator.constant.numeric"
                               },
                               "4": {
-                                 "name": "constant.numeric.decimal.point.fidl"
+                                 "name": "constant.numeric.decimal.point.franca"
                               },
                               "5": {
-                                 "name": "constant.numeric.decimal.fidl",
+                                 "name": "constant.numeric.decimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -124,16 +124,16 @@
                                  "name": "punctuation.separator.constant.numeric"
                               },
                               "8": {
-                                 "name": "keyword.other.unit.exponent.decimal.fidl"
+                                 "name": "keyword.other.unit.exponent.decimal.franca"
                               },
                               "9": {
-                                 "name": "keyword.operator.plus.exponent.decimal.fidl"
+                                 "name": "keyword.operator.plus.exponent.decimal.franca"
                               },
                               "10": {
-                                 "name": "keyword.operator.minus.exponent.decimal.fidl"
+                                 "name": "keyword.operator.minus.exponent.decimal.franca"
                               },
                               "11": {
-                                 "name": "constant.numeric.exponent.decimal.fidl",
+                                 "name": "constant.numeric.exponent.decimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -142,7 +142,7 @@
                                  ]
                               },
                               "12": {
-                                 "name": "keyword.other.unit.suffix.floating-point.fidl"
+                                 "name": "keyword.other.unit.suffix.floating-point.franca"
                               }
                            }
                         },
@@ -150,10 +150,10 @@
                            "match": "(\\G0[bB])([01](?:[01]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)((?:[dD]|[fF])(?!\\w))?$",
                            "captures": {
                               "1": {
-                                 "name": "keyword.other.unit.binary.fidl"
+                                 "name": "keyword.other.unit.binary.franca"
                               },
                               "2": {
-                                 "name": "constant.numeric.binary.fidl",
+                                 "name": "constant.numeric.binary.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -165,7 +165,7 @@
                                  "name": "punctuation.separator.constant.numeric"
                               },
                               "4": {
-                                 "name": "keyword.other.unit.suffix.integer.fidl"
+                                 "name": "keyword.other.unit.suffix.integer.franca"
                               }
                            }
                         },
@@ -173,10 +173,10 @@
                            "match": "(\\G0)((?:[0-7]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))+)((?:[dD]|[fF])(?!\\w))?$",
                            "captures": {
                               "1": {
-                                 "name": "keyword.other.unit.octal.fidl"
+                                 "name": "keyword.other.unit.octal.franca"
                               },
                               "2": {
-                                 "name": "constant.numeric.octal.fidl",
+                                 "name": "constant.numeric.octal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -188,7 +188,7 @@
                                  "name": "punctuation.separator.constant.numeric"
                               },
                               "4": {
-                                 "name": "keyword.other.unit.suffix.integer.fidl"
+                                 "name": "keyword.other.unit.suffix.integer.franca"
                               }
                            }
                         },
@@ -196,10 +196,10 @@
                            "match": "(\\G0[xX])([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)((?<!')([pP])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)))?((?:[dDfF])(?!\\w))?$",
                            "captures": {
                               "1": {
-                                 "name": "keyword.other.unit.hexadecimal.fidl"
+                                 "name": "keyword.other.unit.hexadecimal.franca"
                               },
                               "2": {
-                                 "name": "constant.numeric.hexadecimal.fidl",
+                                 "name": "constant.numeric.hexadecimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -211,16 +211,16 @@
                                  "name": "punctuation.separator.constant.numeric"
                               },
                               "5": {
-                                 "name": "keyword.other.unit.exponent.hexadecimal.fidl"
+                                 "name": "keyword.other.unit.exponent.hexadecimal.franca"
                               },
                               "6": {
-                                 "name": "keyword.operator.plus.exponent.hexadecimal.fidl"
+                                 "name": "keyword.operator.plus.exponent.hexadecimal.franca"
                               },
                               "7": {
-                                 "name": "keyword.operator.minus.exponent.hexadecimal.fidl"
+                                 "name": "keyword.operator.minus.exponent.hexadecimal.franca"
                               },
                               "8": {
-                                 "name": "constant.numeric.exponent.hexadecimal.fidl",
+                                 "name": "constant.numeric.exponent.hexadecimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -229,7 +229,7 @@
                                  ]
                               },
                               "9": {
-                                 "name": "keyword.other.unit.suffix.integer.fidl"
+                                 "name": "keyword.other.unit.suffix.integer.franca"
                               }
                            }
                         },
@@ -237,7 +237,7 @@
                            "match": "(\\G(?=[0-9.])(?!0[xXbB]))([0-9](?:[0-9]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)((?<!')([eE])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)))?((?:[dDfF])(?!\\w))?$",
                            "captures": {
                               "2": {
-                                 "name": "constant.numeric.decimal.fidl",
+                                 "name": "constant.numeric.decimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -249,16 +249,16 @@
                                  "name": "punctuation.separator.constant.numeric"
                               },
                               "5": {
-                                 "name": "keyword.other.unit.exponent.decimal.fidl"
+                                 "name": "keyword.other.unit.exponent.decimal.franca"
                               },
                               "6": {
-                                 "name": "keyword.operator.plus.exponent.decimal.fidl"
+                                 "name": "keyword.operator.plus.exponent.decimal.franca"
                               },
                               "7": {
-                                 "name": "keyword.operator.minus.exponent.decimal.fidl"
+                                 "name": "keyword.operator.minus.exponent.decimal.franca"
                               },
                               "8": {
-                                 "name": "constant.numeric.exponent.decimal.fidl",
+                                 "name": "constant.numeric.exponent.decimal.franca",
                                  "patterns": [
                                     {
                                        "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
@@ -267,7 +267,7 @@
                                  ]
                               },
                               "9": {
-                                 "name": "keyword.other.unit.suffix.integer.fidl"
+                                 "name": "keyword.other.unit.suffix.integer.franca"
                               }
                            }
                         },
@@ -287,14 +287,14 @@
                "begin": "(\\\")",
                "beginCaptures": {
                   "1": {
-                     "name": "string.quoted.double.fidl"
+                     "name": "string.quoted.double.franca"
                   }
                },
-               "contentName": "string.quoted.double.fidl",
+               "contentName": "string.quoted.double.franca",
                "end": "(\\\")",
                "endCaptures": {
                   "1": {
-                     "name": "string.quoted.double.fidl"
+                     "name": "string.quoted.double.franca"
                   }
                }
             }
@@ -357,20 +357,20 @@
          "patterns": [
             {
                "match": "(//.*)",
-               "name": "comment.line.double-slash.fidl"
+               "name": "comment.line.double-slash.franca"
             },
             {
                "begin": "(/\\*)",
                "beginCaptures": {
                   "1": {
-                     "name": "comment.block.fidl"
+                     "name": "comment.block.franca"
                   }
                },
-               "contentName": "comment.block.fidl",
+               "contentName": "comment.block.franca",
                "end": "(\\*/)",
                "endCaptures": {
                   "1": {
-                     "name": "comment.block.fidl"
+                     "name": "comment.block.franca"
                   }
                }
             }
@@ -382,20 +382,20 @@
                "begin": "(<\\*\\*)",
                "beginCaptures": {
                   "1": {
-                     "name": "comment.block.documentation.begin.fidl"
+                     "name": "comment.block.documentation.begin.franca"
                   }
                },
-               "contentName": "comment.block.documentation.fidl",
+               "contentName": "comment.block.documentation.franca",
                "patterns": [
                   {
-                     "match": "(@\\^?(description|author|deprecated|source-uri|source-alias|see|experimental|details|param|high-volume|high-frequency))",
-                     "name": "storage.type.class.doxygen.fidl"
+                     "match": "(@\\^?(description|author|deprecated|source-uri|source-alias|see|experimental|details|param|high-volume|high-frequency)\\s*:)",
+                     "name": "storage.type.class.doxygen.franca"
                   }
                ],
                "end": "(\\*\\*>)",
                "endCaptures": {
                   "1": {
-                     "name": "comment.block.documentation.end.fidl"
+                     "name": "comment.block.documentation.end.franca"
                   }
                }
             }
@@ -407,13 +407,13 @@
                "match": "(^\\s*\\bpackage\\b)(\\s+)(\\^?\\w+(?:(?:\\.|\\$)\\w+)*)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.section.fidl"
+                     "name": "entity.name.section.franca"
                   }
                }
             }
@@ -422,36 +422,36 @@
       "ImportSection": {
          "patterns": [
             {
-               "match": "(^\\s*\\bimport\\b)(\\s*)(\\^?\\w+(?:(?:\\.|\\$)\\w+)*\\W*)(\\s*)((?:\\bfrom\\b)?)",
+               "match": "(^\\s*\\bimport\\b)(\\s+)(\\^?\\w+(?:(?:\\.|\\$)\\w+)*\\W*)(\\s+)((?:\\bfrom\\b)?)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.fidl"
+                     "name": "entity.name.section.franca"
                   },
                   "4": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "5": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   }
                }
             },
             {
-               "match": "(^\\s*\\bimport\\b)(\\s*)(\\bmodel\\b)",
+               "match": "(^\\s*\\bimport\\b)(\\s+)(\\bmodel\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   }
                }
             }
@@ -460,8 +460,8 @@
       "PrimitiveTypes": {
          "patterns": [
             {
-               "match": "\\b(const|Int8|UInt8|Int16|UInt16|Int32|UInt32|Int64|UInt64|Boolean|String|Float|Double|ByteBuffe)\\b",
-               "name": "storage.type.fidl"
+               "match": "\\b(const|Int8|UInt8|Int16|UInt16|Int32|UInt32|Int64|UInt64|Boolean|String|Float|Double|ByteBuffer)\\b",
+               "name": "storage.type.franca"
             }
          ]
       },
@@ -469,7 +469,7 @@
          "patterns": [
             {
                "match": "\\b(Integer|minInt|maxInt)\\b",
-               "name": "keyword.other.fidl"
+               "name": "keyword.other.franca"
             }
          ]
       },
@@ -479,24 +479,24 @@
                "match": "(\\barray\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bof\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "storage.type.array.fidl"
+                     "name": "entity.name.type.franca"
                   },
                   "4": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "5": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   }
                }
             },
             {
-               "name": "storage.type.array.fidl",
+               "name": "storage.type.array.franca",
                "begin": "\\[",
                "end": "\\]"
             }
@@ -508,13 +508,13 @@
                "match": "(^\\s*{?\\s*\\benumeration\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   }
                }
             },
@@ -522,25 +522,25 @@
                "match": "(^\\s*{?\\s*\\benumeration\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bextends\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   },
                   "4": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "5": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "6": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "7": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   }
                }
             }
@@ -552,13 +552,13 @@
                "match": "(^\\s*{?\\s*\\bstruct\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   }
                }
             },
@@ -566,19 +566,19 @@
                "match": "(^\\s*{?\\s*\\bstruct\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bpolymorphic\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   },
                   "4": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "5": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   }
                }
             },
@@ -586,25 +586,25 @@
                "match": "(^\\s*{?\\s*\\bstruct\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bextends\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   },
                   "4": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "5": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "6": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "7": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   }
                }
             }
@@ -616,13 +616,13 @@
                "match": "(^\\s*{?\\s*\\bunion\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   }
                }
             },
@@ -630,25 +630,25 @@
                "match": "(^\\s*{?\\s*\\bunion\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bextends\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   },
                   "4": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "5": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "6": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "7": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   }
                }
             }
@@ -658,7 +658,7 @@
          "patterns": [
             {
                "match": "\\b(map|to)\\b",
-               "name": "keyword.other.fidl"
+               "name": "keyword.other.franca"
             }
          ]
       },
@@ -668,19 +668,19 @@
                "match": "(\\btypedef\\b)(\\s+)(\\b\\^?(?:[\\w])+\\b)(\\s+)(\\bis\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "storage.type.array.fidl"
+                     "name": "entity.name.type.franca"
                   },
                   "4": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "5": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   }
                }
             }
@@ -692,10 +692,10 @@
                "match": "(^\\s*\\btypeCollection\\b)(\\s*\\W*\\b)",
                "captures": {
                   "1": {
-                     "name": "storage.type.fidl"
+                     "name": "storage.type.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   }
                }
             },
@@ -703,13 +703,13 @@
                "match": "(^\\s*\\btypeCollection\\b)(\\s+)(\\b(?:[\\w])+\\b)",
                "captures": {
                   "1": {
-                     "name": "storage.type.fidl"
+                     "name": "storage.type.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   }
                }
             }
@@ -721,19 +721,19 @@
                "match": "(^\\s*\\binterface\\b)(\\s+)(\\b(?:[\\w])+\\b)",
                "captures": {
                   "1": {
-                     "name": "storage.type.fidl"
+                     "name": "storage.type.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.type.fidl"
+                     "name": "entity.name.type.franca"
                   }
                }
             },
             {
                "match": "\\bmanages\\b",
-               "name": "keyword.other.fidl"
+               "name": "keyword.other.franca"
             },
             {
                "include": "#Version"
@@ -756,7 +756,7 @@
          "patterns": [
             {
                "match": "\\b(version|major|minor)\\b",
-               "name": "keyword.other.fidl"
+               "name": "keyword.other.franca"
             }
          ]
       },
@@ -764,7 +764,7 @@
          "patterns": [
             {
                "match": "\\b(attribute|readonly|noSubscriptions|noRead)\\b",
-               "name": "keyword.other.fidl"
+               "name": "keyword.other.franca"
             }
          ]
       },
@@ -774,19 +774,19 @@
                "match": "(^\\s*\\bmethod\\b)(\\s+)(\\b\\w+\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.function.fidl"
+                     "name": "entity.name.function.franca"
                   }
                }
             },
             {
                "match": "\\b(in|out|error|fireAndForget)\\b",
-               "name": "keyword.other.fidl"
+               "name": "keyword.other.franca"
             }
          ]
       },
@@ -796,19 +796,19 @@
                "match": "(^\\s*\\bbroadcast\\b)(\\s+)(\\b\\w+\\b)",
                "captures": {
                   "1": {
-                     "name": "keyword.other.fidl"
+                     "name": "keyword.other.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   },
                   "3": {
-                     "name": "entity.name.function.fidl"
+                     "name": "entity.name.function.franca"
                   }
                }
             },
             {
                "match": "\\bselective\\b",
-               "name": "keyword.other.fidl"
+               "name": "keyword.other.franca"
             }
          ]
       },
@@ -818,19 +818,19 @@
                "match": "(^\\s*\\bcontract\\b)(\\s*\\W*\\b)",
                "captures": {
                   "1": {
-                     "name": "entity.name.function.fidl"
+                     "name": "entity.name.function.franca"
                   },
                   "2": {
-                     "name": "whitespace.fidl"
+                     "name": "whitespace.franca"
                   }
                }
             },
             {
                "match": "\\b(PSM|vars|state|transition|initial|call|respond|signal|set|update)\\b",
-               "name": "keyword.other.fidl"
+               "name": "keyword.other.franca"
             }
          ]
       }
    },
-   "scopeName": "source.fidl"
+   "scopeName": "source.franca"
 }

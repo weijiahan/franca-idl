@@ -1,0 +1,349 @@
+<** 5.7.1 Unstructured comments **>
+// this is a one-line unstructured comment
+/* this is a multi-line unstructured comment,
+   it could be used also for one-liners :-) */
+<** 5.7.2 Structured comments **>
+<** @description : A comment with this tag contains a description of the documented interface or datatype element.
+*                 Typically, the string content of this tag will be used for generated documentation.
+*   @author : This tag specifies the author of the documented element.
+*   @deprecated : This tag is used to mark the documented element as deprecated. The string content should point out a better solution which can be used in order to avoid using this element.
+*   @source-uri : This tag can be used to point to an URI which specifies some kind kind of source information for this element.
+*                 E.g., if an interface has been created by transformation from a D-Bus introspection file, the source URI could refer to the original D-Bus XML file.
+*   @source-alias : This tag can be used in addition to @source−uri for specifying source elements for the corresponding Franca element.
+*   @see : A comment with this tag specifies a further reading or any other kind of semantic reference.
+*   @experimental : An element marked with this tag is not a stable part of the interface definition.
+*   @details : This tag is deprecated, it will be removed in a future version. The @description tag should be used instead.
+*   @param : This tag is deprecated, it will be removed in a future version. Instead, the arguments of methods and broadcasts should be documented using the @description tag for the corresponding arguments.
+*   @high-volume : This tag is deprecated, it will be removed in a future version. Specific information related to performance and QoS aspects should be modeled using Franca deployment models.
+*   @high-frequency : This tag is deprecated, it will be removed in a future version. Specific information related to performance and QoS aspects should be modeled using Franca deployment models.
+**>
+
+<** 5.8.2 Package declarations **>
+package org.franca.examples
+
+<** 5.8.3 Imports and namespace resolution **>
+import model "basic types.fidl"  // model import
+
+import org.franca.examples.demo.* from "basic types.fidl" // namespace import ALL
+import org.franca.examples.demo.Basic from "basic types.fidl" // namespace import single type
+
+<** 5.4 TypeCollection definition **>
+// named type collection
+typeCollection ExampleTypeCollection {
+   version { major 3 minor 1 }
+   // put user-defined types here
+}
+
+<** 5.4 TypeCollection definition **>
+// unnamed type collection
+typeCollection {
+   version { major 3 minor 1 }
+   // put user-defined types here
+
+   <** 5.1.1 Primitive types **>
+   // Primitive types can not occur standalone. To give an syntactically valid example they are enclosed in a struct
+   struct PrimitiveTypes {
+      UInt8      var1
+      Int8       var2
+      UInt16     var3
+      Int16      var4
+      UInt32     var5
+      Int32      var6
+      UInt64     var7
+      Int64      var8
+      Boolean    var9
+      Float      varA
+      Double     varB
+      String     varC
+      ByteBuffer varD
+   }
+
+   <** 5.1.2 Integer with optional range **>
+   // Integer types can not occur standalone. To give an syntactically valid example they are enclosed in a struct
+   struct IntegerTypes {
+      Integer                 varE
+      Integer(1,7)            varF
+      Integer(−20,100)        varG
+      Integer(0,maxInt)       varH
+      Integer(minInt,maxInt)  varI
+   }
+
+   <** 5.1.3 Arrays **>
+   array ExampleArrayRow of UInt8
+   array ExampleArray of ExampleArrayRow
+   array ExampleArray ExampleArrayRow // wrong: keyword 'of' is missing
+   array of UInt32 // wrong: name of array is missing
+   array UInt8 of ExampleArrayRow // wrong: name of array can't be an franca keyword (or an aleady defined user type)
+
+   // implicit/inline array types
+   struct PrimitiveArrayTypes {
+      UInt8[]      arr1
+      Int8[]       arr2
+      UInt16[]     arr3
+      Int16[]      arr4
+      UInt32[]     arr5
+      Int32[]      arr6
+      UInt64[]     arr7
+      Int64[]      arr8
+      Boolean[]    arr9
+      Float[]      arrA
+      Double[]     arrB
+      String[]     arrC
+      ByteBuffer[] arrD
+   }
+
+   <** 5.1.4 Enumerations **>
+   enumeration ExampleEnumeration1 {
+      VALUE_1
+      VALUE_2
+      VALUE_3
+      // ...
+   }
+
+   enumeration ExampleEnumeration2a {
+      VALUE_1 = "10"
+      VALUE_2 = "20"
+      VALUE_3 = "foo"   // invalid, no integer
+      // ...
+   }
+
+   enumeration ExampleEnumeration2b {
+      VALUE_1 = 100
+      VALUE_2 = 100+1
+      VALUE_3 = 30∗30
+      // ...
+   }
+
+   enumeration ExampleEnumeration2c {
+      VALUE_1 = 0xBADA
+      VALUE_2 = 0X89ab
+      VALUE_3 = 0b0001001
+      VALUE_4 = 0B10101
+      // ...
+   }
+
+   enumeration DerivedEnumeration3 extends ExampleEnumeration1 {
+      VALUE_4
+      VALUE_5
+   }
+
+   <** 5.1.5 Structures **>
+   struct ExampleStruct {
+      UInt8        member1
+      String       member2
+      ExampleArray member3
+      UInt16[]     member4
+   }
+
+   struct DerivedStruct extends ExampleStruct {
+      ExampleArray member5
+   }
+
+   struct PolymorphicBaseStruct polymorphic {
+      UInt8        a
+   }
+
+   struct DerivedStruct1 extends PolymorphicBaseStruct {
+      Int16        b
+   }
+
+   struct DerivedStruct2 extends PolymorphicBaseStruct {
+      String       c
+   }
+
+
+   <** 5.1.6 Unions (aka variants) **>
+   union BaseUnion {
+      UInt32 aUnsigned
+      Int32  sSigned
+   }
+
+   union DerivedUnion extends BaseUnion {
+      Float aFloat
+      String aString
+   }
+
+   <** 4.1.7 Maps (aka dictionaries) **>
+   map ExampleMap {
+      Int16 to ExampleStruct
+   }
+
+   map WrongExampleMap {
+      Int16 ExampleStruct // wrong: keyword 'to' is missing
+   }
+
+   map String {    // wrong: name of type can't be an franca keyword (or an aleady defined user type)
+      Int16 to ExampleStruct
+   }
+
+   <** 5.1.8 Type definitions (aka aliases) **>
+   typedef ExampleAlias is UInt32
+   typedef ExampleAlias UInt32 // wrong: keyword 'is' is missing
+   typedef is UInt32 // wrong: name of type is missing
+   typedef UInt32 is ExampleAlias // wrong: name of type can't be an franca keyword (or an aleady defined user type)
+
+
+   <** 5.2.1 Primitive constants **>
+   const Boolean b1 = true
+   const UInt32 MAX COUNT = 10000
+   const UInt16 SOME ID = 0xA00B
+   const UInt8 BYTE ME = 0b00110011
+   const String foo = ”bar”
+   const Double pi = 3.1415d
+
+   // complex expressions (§5.3) might be used as initializer expressions.
+   const UInt32 twentyfive = 5∗5
+   const Boolean b2 = MAX COUNT > 3
+   const Boolean b3 = (a && b) || foo==”bar”
+
+   <** 5.2.2 Complex constants **>
+   array Array1 of UInt16
+   const Array1 empty = []
+   const Array1 full = [ 1, 2, 2+3, 100∗100+100 ]
+
+   struct Struct4Const1 {
+      Boolean e1
+      UInt16 e2
+      String e3
+   }
+   const Struct4Const1 s1 = { e1: true, e2: 1, e3: ”foo”}
+
+   union Union4Const1 {
+      UInt16 e1
+      Boolean e2
+      String e3
+   }
+   const Union4Const1 uni1 = { e1: 1 }
+   const Union4Const1 uni2 = { e3: ”foo”}
+
+   map Map4Const1 { UInt16 to String }
+   const Map4Const1 m1 = [ 1 => ”one”, 2 => ”two”]
+}
+
+
+
+<** 5.5 Interface definition **>
+// Basic interface definition
+interface BaseInterface {
+   version { major 5 minor 0 }
+}
+
+// Interface inheritance
+interface ExampleInterface extends BaseInterface {
+   version { major 5 minor 0 }
+
+   <** 5.5.2 Attributes **>
+   attribute UInt32 someAttribute
+   attribute ExampleArray otherAttribute
+   attribute String[] arrayAttribute readonly
+   attribute UInt32 controlRegister noRead
+   attribute UInt32 speed noSubscriptions
+   attribute UInt32 temperature readonly noSubscriptions
+
+   <** 5.5.3 Methods **>
+   method divide {
+      in {
+         UInt32 dividend
+         UInt32 divisor
+      }
+      out {
+         UInt32 quotient
+         UInt32 remainder
+      }
+      error { // syntax is same as of enumerations
+         DIVISION_BY_ZERO
+         OVERFLOW
+         UNDERFLOW
+      }
+   }
+
+   method add {
+      in {
+         UInt32 a
+         UInt32 b
+      }
+      out {
+         UInt32 sum
+      }
+      error extends GenericErrors { // GenericErrors must be an enumeration
+         OVERFLOW
+      }
+   }
+
+   method sub {
+      in {
+         UInt32 a
+         UInt32 b
+      }
+      out {
+         UInt32 diff
+      }
+      error GenericErrors // GenericErrors must be an enumeration
+   }
+
+   method play {
+      // validation error: ”Duplicate argument name ’track’ used for in and out”
+      in { TrackInfo track }
+      out { UInt16 track }
+   }
+
+   // Fire-and-forget methods
+   method stillAlive fireAndForget { // flag fireAndForget
+      in { UInt16 health }
+   }
+
+   <** 5.5.4 Broadcasts **>
+   broadcast buttonClicked {
+      out {
+         ButtonId id
+         Boolean isLongPress
+      }
+   }
+
+   // Selective broadcasts
+   broadcast stop selective { // flag selective
+      out { Boolean immediately }
+   }
+
+   <** 5.6 Contracts **>
+   // specification of dynamic behavior on the interface
+   contract {
+      vars {
+         UInt32 count;
+      }
+      PSM {
+         initial idle
+         state idle {
+            on call setActivePlayer −> working {
+               count = count + 1
+            }
+         }
+         state working {
+            on signal attachOutput [count < 100] −> idle
+            on signal attachOutput [count >= 100] −> silence
+         }
+         state silence { }
+      }
+   }
+
+   // put type definitions here
+   enumeration GenericErrors {
+      INVALID PARAMATERS
+      // ...
+   }
+}
+
+<** 5.5.5 Interfaces managing interfaces **>
+interface SomeService {
+   method getDirectory { }
+   method getFile { }
+}
+
+interface OtherService {
+   method playMusic { }
+}
+
+interface BluetoothMaster manages SomeService, OtherService {
+   attribute UInt16 connectedClients
+   method disconnectAll { }
+}
