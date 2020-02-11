@@ -6,6 +6,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.0.6] - 2020-02-11
+
+### Fixed
+
+- Icon file.
+
 ## [0.0.5] - 2020-02-11
 
 ### Add
@@ -14,7 +20,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [0.0.4] - 2020-02-11
 
-### Changed
+### Fixed
 
 - Fix whitespaces.
 - Fix spelling `ByteBuffe` => `ByteBuffer`.
