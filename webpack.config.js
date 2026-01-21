@@ -17,10 +17,7 @@ module.exports = [
         },
         resolve: {
             extensions: ['.ts', '.js'],
-            mainFields: ['main', 'module'],
-            fallback: {
-                path: false
-            }
+            mainFields: ['main', 'module']
         },
         module: {
             rules: [
