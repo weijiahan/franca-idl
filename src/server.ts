@@ -207,7 +207,9 @@ async function searchWorkspaceFiles(pattern: string): Promise<string[]> {
 
 // Load all fidl files in the workspace
 async function loadAllWorkspaceFiles(): Promise<void> {
+    console.log('[Franca LSP] Searching for workspace .fidl files...');
     const files = await searchWorkspaceFiles('**/*.fidl');
+    console.log('[Franca LSP] Found', files.length, '.fidl files in workspace');
     for (const uri of files) {
         if (!loadedFiles.has(uri)) {
             await loadAndIndexFile(uri);
@@ -371,6 +373,8 @@ function parseDocument(content: string): DocumentSymbol[] {
 }
 
 connection.onInitialize((params: InitializeParams): InitializeResult => {
+    console.log('[Franca LSP] Server initializing...');
+    console.log('[Franca LSP] Workspace folders:', params.workspaceFolders?.map(w => w.name));
     return {
         capabilities: {
             textDocumentSync: TextDocumentSyncKind.Full,
@@ -379,6 +383,10 @@ connection.onInitialize((params: InitializeParams): InitializeResult => {
             referencesProvider: true
         }
     };
+});
+
+connection.onInitialized(() => {
+    console.log('[Franca LSP] Server initialized and ready!');
 });
 
 connection.onDocumentSymbol((params: { textDocument: { uri: string } }): DocumentSymbol[] => {
@@ -391,11 +399,13 @@ connection.onDocumentSymbol((params: { textDocument: { uri: string } }): Documen
 
 // Go to Definition - find the definition location for a symbol
 connection.onDefinition(async (params: DefinitionParams): Promise<Location | null> => {
+    console.log('[Franca LSP] onDefinition called for:', params.textDocument.uri);
     const document = documents.get(params.textDocument.uri);
     if (!document) return null;
 
     const word = getWordAtPosition(document.getText(), params.position);
     if (!word) return null;
+    console.log('[Franca LSP] Looking for definition of:', word);
 
     // First, ensure all workspace files are loaded
     await loadAllWorkspaceFiles();
@@ -404,15 +414,21 @@ connection.onDefinition(async (params: DefinitionParams): Promise<Location | nul
     await loadImportedFiles(params.textDocument.uri);
 
     const refs = symbolIndex.get(word);
-    if (!refs) return null;
+    if (!refs) {
+        console.log('[Franca LSP] No references found for:', word);
+        return null;
+    }
+    console.log('[Franca LSP] Found', refs.length, 'references for:', word);
 
     // Find the definition reference (where isDefinition is true)
     const definition = refs.find(r => r.isDefinition);
     if (definition) {
+        console.log('[Franca LSP] Found definition at:', definition.uri);
         return Location.create(definition.uri, definition.range);
     }
 
     // If no definition found, return first occurrence
+    console.log('[Franca LSP] No definition found, returning first occurrence');
     return Location.create(refs[0].uri, refs[0].range);
 });
 
