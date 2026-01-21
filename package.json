@@ -4,6 +4,13 @@
    "description": "FRANCA Interface Description Language (FIDL) support for VSCode.",
    "version": "1.0.0",
    "icon": "images/icon.png",
+   "files": [
+      "out/**/*.js",
+      "out/**/*.map",
+      "syntaxes/",
+      "snippets.json",
+      "language-configuration.json"
+   ],
    "engines": {
       "vscode": "^1.40.0"
    },
@@ -12,9 +19,6 @@
    ],
    "publisher": "weijh",
    "main": "./out/extension",
-   "activationEvents": [
-      "onLanguage:franca"
-   ],
    "contributes": {
       "languages": [
          {
@@ -60,7 +64,7 @@
    "homepage": "https://github.com/weijiahan/franca-idl#readme",
    "devDependencies": {
       "@types/node": "^25.0.9",
-      "@types/vscode": "^1.108.1",
+      "@types/vscode": "^1.40.0",
       "typescript": "^5.9.3",
       "vscode-languageclient": "^9.0.1"
    },
