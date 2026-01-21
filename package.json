@@ -2,26 +2,23 @@
    "name": "franca-idl",
    "displayName": "FRANCA IDL",
    "description": "FRANCA Interface Description Language (FIDL) support for VSCode.",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "icon": "images/icon.png",
    "files": [
       "out/**/*.js",
-      "out/**/*.map",
       "syntaxes/",
       "snippets.json",
-      "language-configuration.json"
+      "language-configuration.json",
+      "images/"
    ],
    "engines": {
-      "vscode": "^1.40.0"
+      "vscode": "^1.75.0"
    },
    "categories": [
       "Programming Languages"
    ],
    "publisher": "weijh",
    "main": "./out/extension",
-   "activationEvents": [
-      "onLanguage:franca"
-   ],
    "contributes": {
       "languages": [
          {
@@ -67,8 +64,10 @@
    "homepage": "https://github.com/weijiahan/franca-idl#readme",
    "devDependencies": {
       "@types/node": "^25.0.9",
-      "@types/vscode": "^1.40.0",
+      "@types/vscode": "^1.75.0",
+      "@vscode/vsce": "^3.7.1",
       "typescript": "^5.9.3",
+      "vsce": "^2.15.0",
       "vscode-languageclient": "^9.0.1"
    },
    "dependencies": {
