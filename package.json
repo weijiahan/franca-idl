@@ -2,7 +2,7 @@
    "name": "franca-idl",
    "displayName": "FRANCA IDL",
    "description": "FRANCA Interface Description Language (FIDL) support for VSCode.",
-   "version": "1.0.3",
+   "version": "1.0.4",
    "icon": "images/icon.png",
    "files": [
       "out/**/*.js",
@@ -48,8 +48,8 @@
       ]
    },
    "scripts": {
-      "compile": "tsc -p ./",
-      "watch": "tsc -p ./ -w"
+      "compile": "webpack --mode production",
+      "watch": "webpack --mode development --watch"
    },
    "repository": {
       "type": "git",
@@ -66,11 +66,14 @@
       "@types/node": "^25.0.9",
       "@types/vscode": "^1.75.0",
       "@vscode/vsce": "^3.7.1",
+      "ts-loader": "^9.5.4",
       "typescript": "^5.9.3",
       "vsce": "^2.15.0",
-      "vscode-languageclient": "^9.0.1"
+      "webpack": "^5.104.1",
+      "webpack-cli": "^6.0.1"
    },
    "dependencies": {
+      "vscode-languageclient": "^9.0.1",
       "vscode-languageserver": "^9.0.1",
       "vscode-languageserver-textdocument": "^1.0.12"
    }
