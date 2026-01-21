@@ -6,6 +6,7 @@ module.exports = [
     {
         mode: 'production',
         entry: './src/extension.ts',
+        target: 'node',
         output: {
             path: path.resolve(__dirname, 'out'),
             filename: 'extension.js',
@@ -17,7 +18,8 @@ module.exports = [
         },
         resolve: {
             extensions: ['.ts', '.js'],
-            mainFields: ['main', 'module']
+            mainFields: ['main'],
+            aliasFields: []
         },
         module: {
             rules: [
@@ -46,6 +48,7 @@ module.exports = [
     {
         mode: 'production',
         entry: './src/server.ts',
+        target: 'node',
         output: {
             path: path.resolve(__dirname, 'out'),
             filename: 'server.js',
@@ -57,7 +60,8 @@ module.exports = [
         },
         resolve: {
             extensions: ['.ts', '.js'],
-            mainFields: ['main', 'module']
+            mainFields: ['main'],
+            aliasFields: []
         },
         module: {
             rules: [
