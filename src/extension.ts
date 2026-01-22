@@ -1,5 +1,5 @@
 import { ExtensionContext, workspace, Uri } from 'vscode';
-import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, RequestType } from 'vscode-languageclient';
+import { LanguageClient, LanguageClientOptions, ServerOptions, RequestType } from 'vscode-languageclient';
 
 let client: LanguageClient;
 
@@ -14,18 +14,10 @@ namespace FindFilesRequest {
 
 export function activate(context: ExtensionContext) {
     const serverModule = context.asAbsolutePath('out/server.js');
-    const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
 
     const serverOptions: ServerOptions = {
-        run: {
-            module: serverModule,
-            transport: TransportKind.ipc
-        },
-        debug: {
-            module: serverModule,
-            transport: TransportKind.ipc,
-            options: debugOptions
-        }
+        run: { module: serverModule },
+        debug: { module: serverModule, options: { execArgv: ['--nolazy', '--inspect=6009'] } }
     };
 
     const clientOptions: LanguageClientOptions = {
